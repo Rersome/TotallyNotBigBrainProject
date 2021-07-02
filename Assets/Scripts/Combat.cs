@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Timers;
 
 public class Combat : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class Combat : MonoBehaviour
 
     public float attackRate = 2f;
     float nextAttackTime = 0f;
+
 
     void Update()
     {
@@ -32,7 +34,7 @@ public class Combat : MonoBehaviour
 
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
-        foreach(Collider2D enemy in hitEnemies)
+        foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
         }
