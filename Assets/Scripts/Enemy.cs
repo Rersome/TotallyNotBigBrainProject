@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
     public int maxHealth = 100;
     int currentHealth;
 
-    public Animator animator;
+    public Animator _animator;
 
     void Start()
     {
@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
     {
         currentHealth -= damage;
 
-        animator.SetTrigger("Hurt");
+        _animator.SetTrigger("Hurt");
 
         if(currentHealth <= 0)
         {
@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
     {
         Debug.Log("Die");
 
-        animator.SetBool("Death", true);
+        _animator.SetBool("Death", true);
         
         GetComponent<Collider2D>().enabled = false;
         this.enabled = false;
